@@ -1,0 +1,8 @@
+version: '3'
+
+services: 
+  shopping-service:
+    build: .
+    image: shopping-service:latest
+    ports: 
+      - "8082:3000"

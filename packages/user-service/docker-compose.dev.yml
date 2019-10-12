@@ -1,0 +1,13 @@
+version: '3'
+
+services: 
+  user-service:
+    volumes:
+      - ./:/api
+    command: npm run start-nodemon
+  mongo:
+    volumes: 
+      - mongodevdata:/data/db
+
+volumes: 
+  mongodevdata:

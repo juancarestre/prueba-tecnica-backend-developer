@@ -1,0 +1,7 @@
+version: '3'
+
+services: 
+  shopping-service:
+    volumes:
+      - ./:/api
+    command: npm run test-watch

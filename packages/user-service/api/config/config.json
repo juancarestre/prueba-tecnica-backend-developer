@@ -1,0 +1,8 @@
+{
+  "test": {
+    "USER_SERVICE_PORT": 3000
+  },
+  "development": {
+    "USER_SERVICE_PORT": 3000
+  }
+}

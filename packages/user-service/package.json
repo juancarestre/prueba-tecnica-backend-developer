@@ -1,0 +1,22 @@
+{
+  "name": "user-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node api/app.js",
+    "start-nodemon": "nodemon -L --watch api --exec 'node api/app.js'",
+    "test": "export \"NODE_ENV=test\" && mocha api/**/*.test.js --timeout 2500 --exit",
+    "test-watch": "nodemon -L --watch api --exec 'npm test'",
+    "populate-frontend": "set NODE_ENV=frontend && node api/tests/seeds/frontendSeed/seeder.js"
+  },
+  "keywords": [],
+  "author": "https://github.com/juancarestre",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.3",
+    "winston": "^3.2.1"
+  }
+}
