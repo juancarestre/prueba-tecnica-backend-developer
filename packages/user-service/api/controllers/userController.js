@@ -1,6 +1,10 @@
-const { CRUDUser } = require('./CRUD');
+const {
+    CRUDUser
+} = require('./CRUD');
 const logger = require('../log');
-const { User } = require('../models/userModel')
+const {
+    User
+} = require('../models/userModel')
 
 const userCrud = new CRUDUser(User)
 
@@ -9,7 +13,8 @@ const createUser = (req, res) => {
     userCrud.create(req).then(async (user) => {
         if (user.errors) {
             return res.status(400).send(user.errors);
-        } if (user.errmsg) {
+        }
+        if (user.errmsg) {
             return res.status(400).send({
                 error: user.errmsg,
             });
@@ -47,6 +52,27 @@ const getUser = (req, res) => {
     res.status(200).send(user);
 };
 
+const myCart = (req, res) => {
+    const user = userCrud.read(req);
+    res.status(200).send({
+        cartList: user.cart
+    });
+};
+
+const myFavorite = (req, res) => {
+    const user = userCrud.read(req);
+    res.status(200).send({
+        favorites: user.favorites
+    });
+};
+
+const myHistory = (req, res) => {
+    const user = userCrud.read(req);
+    res.status(200).send({
+        history: user.history
+    });
+};
+
 const addToCart = (req, res) => {
     userCrud.addToCart(req).then(result => {
         logger.info(`addToCart ${req.body.productID}`);
@@ -74,5 +100,8 @@ module.exports = {
     getUser,
     addToCart,
     addToHistory,
-    addToFavorites
+    addToFavorites,
+    myCart,
+    myFavorite,
+    myHistory
 }

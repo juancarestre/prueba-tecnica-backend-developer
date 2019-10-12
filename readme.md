@@ -11,8 +11,8 @@ La idea es crear una plataforma e-Commerce (marketplace), donde los clientes pue
 2. Comprar productos*
 3. Agregarlos al carrito de compras - done (revisar no agregar repetidos)
 4. Agregarlos a favoritos para comprarlos más tarde - done (revisar no agregar repetidos)
-5. Ver productos favoritos
-6. Ver el historial de compras con su respectivo producto, precio y fecha de compra
+5. Ver productos favoritos - done
+6. Ver el historial de compras con su respectivo producto, precio y fecha de compra - done
 
 El proceso de compra de los diferentes productos se debe hacer con criptomonedas (usar faucets y testnets para los pagos)*
 
