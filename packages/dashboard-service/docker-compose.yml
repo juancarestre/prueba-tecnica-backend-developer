@@ -6,3 +6,7 @@ services:
     image: dashboard-service:latest
     ports: 
       - "8081:3000"
+networks:
+  default:
+    external:
+      name: user-service_default
