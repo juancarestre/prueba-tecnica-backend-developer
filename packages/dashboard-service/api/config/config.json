@@ -4,6 +4,9 @@
   },
   "development": {
     "USER_SERVICE_PORT": 3000,
-    "MONGODB_URI": "mongodb://mongo:27017/ecommer"
+    "MONGODB_URI": "mongodb://mongo:27017/ecommer",
+    "SECRET": "SECRET",
+    "MY_WALLET_ADDRESS": "mxgD3HgYEYQ1JeF9yFoydtEiyVHs7HNPp9"
+
   }
 }

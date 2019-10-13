@@ -14,6 +14,10 @@ const productSchema = new mongoose.Schema({
     price: {
         type: String,
         required: true,
+    },
+    addressToBuy: {
+        type: String,
+        required: true
     }
 }, {
     timestamps: {
