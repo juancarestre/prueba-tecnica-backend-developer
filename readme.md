@@ -8,13 +8,13 @@ Platform wallet address:
 
 
 
-To check the balance in the account check the testnet wallet [in this page](https://counterwallet-testnet.coindaddy.io/#) using the this as 12 word access passphrase:
+To check the balance in the account check the testnet wallet [in this page](https://counterwallet-testnet.coindaddy.io/#) using the this has 12 word access passphrase:
 
     yearn decay flow bedroom observe hair blonde prayer laugh shall street egg
 
 ## Getting Started
 
-For a quick start clone the repository run
+For a quick start clone the repository and run
 
      ./start.sh
 
