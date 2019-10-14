@@ -1,6 +1,14 @@
 const request = require('request-promise-native');
 
-const sendTransaction = (body, userToken) => { //855de8d85f1190291af8d54645ee53efe573459f5dda91c06108fcf438aa3d3
+/**
+ *  Executed after buying a product
+ *  Starts a transaction process sending a post request to the shopping-service
+ * @param {*} body Body of the transaction, has information about the product that will be purchased and the user who buys it
+ * @param {*} userToken Token to get authenticated
+ * @returns promise with results
+ */
+const sendTransaction = (body, userToken) => {
+    
     const options = {
         method: 'POST',
         uri: `${process.env.SHOPPING_SERVICE}/transaction/new`,

@@ -15,7 +15,11 @@ const {
     sendEmail
 } = require('../utils/mailer')
 
-
+/**
+ * parse Transaction body in the transaction Schema body
+ * @param {*} req HTTP request
+ * @returns parsed transaction
+ */
 const incommingTransactionB = (req) => ({
     user__id: req.body.user._id,
     user_name: req.body.user.name,
@@ -27,7 +31,17 @@ const incommingTransactionB = (req) => ({
     transactionId: req.body.transactionId
 })
 
-
+/**
+ *
+ * confirms a transaction, changing the confirmed flag and message status,
+ * if the transaction was correct, sendToHistory sends an HTTP request to 
+ * the user-service in order to add the history to the products history inside the user schema
+ * also calls sendemail to send an confirmation email to the customer 
+ * @param {*} transaction transaction object created
+ * @param {*} message confirmation or invalidation message to be added to the transaction schema
+ * @param {*} confirmed Boolean flag
+ * @param {*} token token to be authenticated
+ */
 const confirmTransaction = (transaction, message, confirmed, token) => {
     Transaction.findOneAndUpdate({
         _id: transaction._id,
@@ -60,8 +74,14 @@ const confirmTransaction = (transaction, message, confirmed, token) => {
 
 
 }
-
+/**
+ * creates a new transaction object, if the transaction object is created, this method activates a cron job
+ * cron job checks the transaction status using checkTransaction connector (ussing the API) 
+ * @param {*} req HTTP request
+ * @param {*} res HTTP response
+ */
 const newTransaction = (req, res) => {
+    
     const incommingTransaction = incommingTransactionB(req)
     const transaction = new Transaction(incommingTransaction)
 
@@ -77,8 +97,9 @@ const newTransaction = (req, res) => {
             let message = ''
             time++
             checkTransaction(incommingTransaction.transactionId).then(result => {
-
                 // console.log(JSON.stringify(result, null, 2))
+
+                // TRANSACTION IS NOT VALID, the api cant be reached, maybe the transactionId was not correct
                 if (result.error) {
                     message = `TRANSACTION IS NOT VALID: ${result.error.message}`
                     logger.info(message)
@@ -94,6 +115,7 @@ const newTransaction = (req, res) => {
                     if (output.addresses.find(address => address === incommingTransaction.product_addressToBuy)) transactionIsValid = true
                 })
 
+                // TRANSACTION IS NOT VALID, WIF doesnt is the WIF in the product schema
                 if (!transactionIsValid) {
                     message = `TRANSACTION IS NOT VALID, ADDRESS DOESNT MATCH WITH: ${incommingTransaction.product_addressToBuy}`
                     logger.info(message)
@@ -102,6 +124,7 @@ const newTransaction = (req, res) => {
                     return
                 }
 
+                // TRANSACTION IS NOT VALID, input_amount < product_price
                 if (result.body.transaction.input_amount < incommingTransaction.product_price) {
                     message = `TRANSACTION IS NOT VALID: input_amount (${result.body.transaction.input_amount}) < product_price (${incommingTransaction.product_price})`
                     logger.info(message)
@@ -110,6 +133,7 @@ const newTransaction = (req, res) => {
                     return
                 }
 
+                // TRANSACTION IS VALID, has at least 1 confirmation
                 if (result.body.transaction.confirmations) {
                     message = `CONFIRMED TRANSACTION`
                     logger.info(message)
@@ -136,7 +160,13 @@ const newTransaction = (req, res) => {
 
 }
 
+/**
+ * Checks the status of an transaction using transactionID
+ * @param {*} req HTTP request
+ * @param {*} res HTTP response
+ */
 const checkTransactionController = (req, res) => {
+    
     Transaction.findOne({
         transactionId: req.params.transactionId,
     }).then((object) => {
@@ -151,7 +181,15 @@ const checkTransactionController = (req, res) => {
     });
 }
 
+/**
+ * Sends confirmation Email
+ * @param {*} to
+ * @param {*} userName
+ * @param {*} productName
+ * @param {*} transactionId
+ */
 const sendemail = (to, userName, productName , transactionId) => {
+    
     let template = './api/public/mailer/Login.html'
 
     rigoPhrases = ['loves you', 'hates you', 'wants to kill you', 'want to kiss you']

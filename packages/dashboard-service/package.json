@@ -25,5 +25,8 @@
     "request-promise-native": "^1.0.7",
     "validator": "^11.1.0",
     "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1"
   }
 }

@@ -1,7 +1,14 @@
 const { User } = require('../models/userModel');
 const logger = require('../log');
 
+/**
+ * compare incomming token inside HTTP request against the encrypted password inside db
+ * @param {*} req HTTP request
+ * @param {*} res HTTP response
+ * @param {*} next Callback
+ */
 const authenticate = (req, res, next) => {
+    
     const token = req.header('x-auth');
     User.findByToken(token).then((user) => {
         if (!user) {
