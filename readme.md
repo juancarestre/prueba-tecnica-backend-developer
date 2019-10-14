@@ -1,5 +1,9 @@
 # prueba-tecnica-backend-developer
 
+### 
+    donde tengo plata: mwREqD3yh774ATZQHxEKUaqWaoj8Y9LDXw
+    el wallet de mi tienda: mxgD3HgYEYQ1JeF9yFoydtEiyVHs7HNPp9
+
 ## TODO:
 ## PRUEBA TÉCNICA BACKEND DEVELOPER
 
