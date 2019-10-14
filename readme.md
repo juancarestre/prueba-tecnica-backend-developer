@@ -1,3 +1,9 @@
+# This API is temporally deployed here:
+
+* [user-service](http://18.207.208.19:8080)
+* [dashboard-service](http://18.207.208.19:8081)
+* [shopping-service](http://18.207.208.19:8082)
+
 # prueba-tecnica-backend-developer
 
 Fictitious e-commerce platform where you buy with bitcoin, to simulate transactions you can use the Bitcoin Testnet.
@@ -11,12 +17,6 @@ Platform wallet address:
 To check the balance in the account check the testnet wallet [in this page](https://counterwallet-testnet.coindaddy.io/#) using the this has 12 word access passphrase:
 
     yearn decay flow bedroom observe hair blonde prayer laugh shall street egg
-
-# This API is temporally deployed here:
-
-* [user-service](http://18.207.208.19:8080)
-* [dashboard-service](http://18.207.208.19:8081)
-* [shopping-service](http://18.207.208.19:8082)
 
 ## Getting Started
 
@@ -61,6 +61,8 @@ To buy a product
 [Docker](https://www.docker.com/) to manage containers
 
 [Postman](https://www.getpostman.com/) to test apis
+
+[NodeJS](https://www.getpostman.com/) to install dependencies for docker-compose volumes
 
 ### Installing
 
