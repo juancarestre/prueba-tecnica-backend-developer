@@ -1,0 +1,513 @@
+{
+	"info": {
+		"_postman_id": "5d907466-1ea0-4890-9ad8-da89e2ce34f2",
+		"name": "prueba-tecnic-bancolombia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user-service",
+			"item": [
+				{
+					"name": "healthCheck /",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080",
+							"host": [
+								"localhost"
+							],
+							"port": "8080"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createUser localhost:8080/user/create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"juan\",\n\t\"password\": \"123456\",\n\t\"email\": \"juan.restrepo81@udea.edu.co\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginUser localhost:8080/user/login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"juan.restrepo81@udea.edu.co\",\n\t\"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ME localhost:8080/user/me",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGE0MGQ1ZjUwMDQwNjAwMjI1ZTc1MGUiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTcxMDMyNDM5LCJleHAiOjE1NzM2MjQ0Mzl9.srnpP5D_vCt-w3kCIMYPLb_I3vlxGauvrnwz6fSPukc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/user/me",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "myFavorites localhost:8080/user/me/favorite",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGE0MGQ1ZjUwMDQwNjAwMjI1ZTc1MGUiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTcxMDMyNDM5LCJleHAiOjE1NzM2MjQ0Mzl9.srnpP5D_vCt-w3kCIMYPLb_I3vlxGauvrnwz6fSPukc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/user/me/favorite",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"me",
+								"favorite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mycart localhost:8080/user/me/cart",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGE0MGQ1ZjUwMDQwNjAwMjI1ZTc1MGUiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTcxMDMyNDM5LCJleHAiOjE1NzM2MjQ0Mzl9.srnpP5D_vCt-w3kCIMYPLb_I3vlxGauvrnwz6fSPukc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/user/me/cart",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"me",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "myHistory localhost:8080/user/me/history",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGE0MGQ1ZjUwMDQwNjAwMjI1ZTc1MGUiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTcxMDMyNDM5LCJleHAiOjE1NzM2MjQ0Mzl9.srnpP5D_vCt-w3kCIMYPLb_I3vlxGauvrnwz6fSPukc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/user/me/history",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"me",
+								"history"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddToCart localhost:8080/user/add/cart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-auth",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGE0MGQ1ZjUwMDQwNjAwMjI1ZTc1MGUiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTcxMDMyNDM5LCJleHAiOjE1NzM2MjQ0Mzl9.srnpP5D_vCt-w3kCIMYPLb_I3vlxGauvrnwz6fSPukc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"productID\": \"5da249638b369c0056f6618a\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/add/cart",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"add",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddToFavorite localhost:8080/user/add/favorite",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-auth",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGE0MGQ1ZjUwMDQwNjAwMjI1ZTc1MGUiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTcxMDMyNDM5LCJleHAiOjE1NzM2MjQ0Mzl9.srnpP5D_vCt-w3kCIMYPLb_I3vlxGauvrnwz6fSPukc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"pc\",\n\t\"price\": \"1.3BTC\",\n\t\"productObjectID\": \"5da249638b369c0056f66189\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/add/favorite",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"add",
+								"favorite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddToHistory localhost:8080/user/add/history",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-auth",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGEyNWJmZDdjMTI4ZTAyN2Y4ZWU0MTIiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTcwOTIxNDgzLCJleHAiOjE1NzM1MTM0ODN9.ggrr9L4DkpW2NNgV74eVpLCAsQer5k3fRVw3ddODKK8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"pc\",\n\t\"price\": \"1.3BTC\",\n\t\"productObjectID\": \"5da249638b369c0056f66189\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/add/history",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"add",
+								"history"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dashboard-service",
+			"item": [
+				{
+					"name": "healthCheck /",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8081",
+							"host": [
+								"localhost"
+							],
+							"port": "8081"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listProducts localhost:8081/product/list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/product/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"product",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buyProduct localhost:8081/product/buy/:id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGEyNWJmZDdjMTI4ZTAyN2Y4ZWU0MTIiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTcwOTM4MjI0LCJleHAiOjE1NzM1MzAyMjR9.nZYwlOfm4ZRfO1OIN6Yl-SwUCdrhIMYGE-dcDfoBtNA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8081/product/buy/:id/:transactionid",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"product",
+								"buy",
+								":id",
+								":transactionid"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5da394f1a160ea003d167960"
+								},
+								{
+									"key": "transactionid",
+									"value": "035be9c32181be16f9023094aa887c1573135ca780cf6701de7340e63f00d3eb"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "shopping-service",
+			"item": [
+				{
+					"name": "healthCheck /",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8082",
+							"host": [
+								"localhost"
+							],
+							"port": "8082"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newTransaction localhost:8082/transaction/new",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGEyNWJmZDdjMTI4ZTAyN2Y4ZWU0MTIiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTcwOTM4MjI0LCJleHAiOjE1NzM1MzAyMjR9.nZYwlOfm4ZRfO1OIN6Yl-SwUCdrhIMYGE-dcDfoBtNA",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": {\r\n        \"_id\": \"5da25bfd7c128e027f8ee412\",\r\n        \"name\": \"juan\",\r\n        \"email\": \"juan.restrepo@udea.edu.co\"\r\n    },\r\n    \"product\": {\r\n        \"_id\": \"5da394f1a160ea003d167960\",\r\n        \"name\": \"pc\",\r\n        \"price\": \"0.003\",\r\n        \"addressToBuy\": \"mwREqD3yh774ATZQHxEKUaqWaoj8Y9LDXw\",\r\n        \"created_at\": \"2019-10-13T21:25:04.913Z\",\r\n        \"updatedAt\": \"2019-10-13T21:25:04.913Z\",\r\n        \"__v\": 0\r\n    },\r\n    \"transactionId\": \"035be9c32181be16f9023094aa887c1573135ca780cf6701de7340e63f00d3eb\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8082/transaction/new",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"transaction",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checkTransaction localhost:8082/transaction/check/:transactionId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGE0MGQ1ZjUwMDQwNjAwMjI1ZTc1MGUiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTcxMDMyNDM5LCJleHAiOjE1NzM2MjQ0Mzl9.srnpP5D_vCt-w3kCIMYPLb_I3vlxGauvrnwz6fSPukc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8082/transaction/check/:transactionId",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"transaction",
+								"check",
+								":transactionId"
+							],
+							"variable": [
+								{
+									"key": "transactionId",
+									"value": "d797683995be98811b635a741b55418ece1e19b76a7ce9551c5b7f72498d2350"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	]
+}

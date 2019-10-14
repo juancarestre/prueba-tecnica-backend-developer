@@ -3,7 +3,7 @@ version: '3'
 services: 
   user-service:
     volumes:
-      - ./:/app
+      - ./:/api
     command: npm run test-watch
   mongo:
     volumes: 

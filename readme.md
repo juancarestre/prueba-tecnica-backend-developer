@@ -1,34 +1,86 @@
 # prueba-tecnica-backend-developer
 
+Fictitious e-commerce platform where you buy with bitcoin, to simulate transactions you can use the Bitcoin Testnet.
+
+Platform wallet address:
+
+    mxgD3HgYEYQ1JeF9yFoydtEiyVHs7HNPp9
+
+
+
+To check the balance in the account check the testnet wallet [in this page](https://counterwallet-testnet.coindaddy.io/#) using the this as 12 word access passphrase:
+
+    yearn decay flow bedroom observe hair blonde prayer laugh shall street egg
+
+## Getting Started
+
+For a quick start clone the repository run
+
+     ./start.sh
+
+To stop the services:
+
+    ./down.sh
+
+### How this works
+
+
+*   There are 3 microservices and 1 mongo database: user-service, dashboard-service, shopping-service 
+* Each microservice runs in a docker container
+* Mongo database runs attached by docker-compose to user-service
+* Docker-compose runs the containers and attaches them to the same docker network
+
+
+### API endpoints
+
+[Here](https://documenter.getpostman.com/view/9136570/SVtWxnqu?version=latest) is the postman collection, also its attached in this repository.
+
+To buy a product
+
+* create a user in localhost:8080/user/create
+* get logged and copy the auth token using localhost:8080/user/login
+* put the token as 'x-auth' header
+* check the available products in localhost:8081/product/list
+* do the transaction to the platform wallet (mxgD3HgYEYQ1JeF9yFoydtEiyVHs7HNPp9), using [mempool testnet faucet](https://testnet-faucet.mempool.co/) or [coinfaucet](https://coinfaucet.eu/en/btc-testnet/)
+* copy the transaction id
+* confirm the transaction in the platform using the endpoint localhost:8081/product/buy/:id/:transactionid, where id is the product id to buy
+* to check your transaction you can use the endpoint localhost:8082/transaction/check/:transactionId
+* wait for the confirmation, the platform assumes that the transaction was confirmed if the transaction has atleast one confirmation, to check confirmations visit: [https://live.blockcypher.com/btc-testnet/](https://live.blockcypher.com/btc-testnet/) and search your transaction id
+
+
+
+### Prerequisites
+
+[Docker](https://www.docker.com/) to manage containers
+
+[Postman](https://www.getpostman.com/) to test apis
+
+### Installing
+
+Run:
+
+    ./start.sh
+
+
+To initialize the 3 microservices
+
+Or run:
+
+    docker-compose -f .\docker-compose.yml -f .\docker-compose.dev.yml up --build
+
+Inside packages/user-service, packages/dashboard-service and packages/shopping-service, 
+respectively and in the same order, this because the first microservice attaches the database and the docker network to where the other services connect
+
+## Running the tests
+
+Only user-service has a few tests 😕, to run the tests executes the following command inside the packages/user-service folder:
+
+    docker-compose -f .\docker-compose.yml -f .\docker-compose.test.yml up --build
+
+This initiate a different database and seed it with test seed data, after that mocha run the tests
+
+
 ### 
-    donde tengo plata: mwREqD3yh774ATZQHxEKUaqWaoj8Y9LDXw
+    dtengo: mwREqD3yh774ATZQHxEKUaqWaoj8Y9LDXw
     el wallet de mi tienda: mxgD3HgYEYQ1JeF9yFoydtEiyVHs7HNPp9
 
-## TODO:
-## PRUEBA TÉCNICA BACKEND DEVELOPER
-
-*Se recomienda enfáticamente leer todas las instrucciones antes de iniciar la prueba.*
-
-La idea es crear una plataforma e-Commerce (marketplace), donde los clientes puedan:
-
-1. Registrarse e iniciar sesión de forma segura - done
-2. Comprar productos*
-3. Agregarlos al carrito de compras - done (revisar no agregar repetidos)
-4. Agregarlos a favoritos para comprarlos más tarde - done (revisar no agregar repetidos)
-5. Ver productos favoritos - done
-6. Ver el historial de compras con su respectivo producto, precio y fecha de compra - done
-
-El proceso de compra de los diferentes productos se debe hacer con criptomonedas (usar faucets y testnets para los pagos)*
-
-**Entregables:**
-
--	Código limpio
-- Pruebas unitarias
--	Código versionado en Github o similares (Gitlab, Bitbucket)
-- Diseño de arquitectura planteado
--	README con la explicación de como correr el proyecto paso a paso, lo ideal es que no tengamos que configurar practicamente nada.
--	APIs, almacenamiento, colleciones postman (o similar) para correr todos los endpoints
-
-Tiempo: 3 días apartir de ser enviada la prueba.
-
-Contacto: msflore@bancolombia.com.co
