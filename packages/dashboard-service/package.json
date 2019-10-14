@@ -21,6 +21,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.4",
     "nodemon": "^1.19.3",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7",
     "validator": "^11.1.0",
     "winston": "^3.2.1"
   }

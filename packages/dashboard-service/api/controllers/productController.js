@@ -1,6 +1,7 @@
 const { Product } = require('../models/productModel')
 const { CRUDProducts } = require('./CRUD')
 const { productsSeed } = require('../utils/products.seed')
+const { sendTransaction } = require('../connectors/shoppingServiceConnector')
 
 const productCrud = new CRUDProducts(Product)
 
@@ -32,8 +33,9 @@ const buyProduct = (req, res) => {
             product,
             transactionId: req.params.transactionId
         }
-        
-        res.send(transaction)
+        sendTransaction(transaction, req.token).then(result => {
+            res.send(result)
+        }).catch(e => res.send({ error: e }))
     }).catch(e => res.send(500))
 }
 
