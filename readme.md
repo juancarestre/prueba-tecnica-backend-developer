@@ -12,6 +12,12 @@ To check the balance in the account check the testnet wallet [in this page](http
 
     yearn decay flow bedroom observe hair blonde prayer laugh shall street egg
 
+# This API is temporally deployed here:
+
+* [user-service](http://18.207.208.19:8080)
+* [dashboard-service](http://18.207.208.19:8081)
+* [shopping-service](http://18.207.208.19:8082)
+
 ## Getting Started
 
 For a quick start clone the repository and run
@@ -21,6 +27,7 @@ For a quick start clone the repository and run
 To stop the services:
 
     ./down.sh
+
 
 ### How this works
 
@@ -66,6 +73,7 @@ To initialize the 3 microservices
 
 Or run:
 
+    npm install --save
     docker-compose -f .\docker-compose.yml -f .\docker-compose.dev.yml up --build
 
 Inside packages/user-service, packages/dashboard-service and packages/shopping-service, 
