@@ -6,7 +6,7 @@
     "USER_SERVICE_PORT": 3000,
     "MONGODB_URI": "mongodb://mongo:27017/ecommer",
     "SECRET": "SECRET",
-    "MY_WALLET_ADDRESS": "mwREqD3yh774ATZQHxEKUaqWaoj8Y9LDXw", 
+    "MY_WALLET_ADDRESS": "mxgD3HgYEYQ1JeF9yFoydtEiyVHs7HNPp9", 
     "SHOPPING_SERVICE": "http://shopping-service:3000"
   }
 }

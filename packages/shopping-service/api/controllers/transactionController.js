@@ -11,6 +11,9 @@ const {
 const {
     Transaction
 } = require('../models/transactionModel')
+const {
+    sendEmail
+} = require('../utils/mailer')
 
 
 const incommingTransactionB = (req) => ({
@@ -49,6 +52,7 @@ const confirmTransaction = (transaction, message, confirmed, token) => {
                 }, token)
                 .then(result => logger.info(`sended to buy history: ${result.statusCode}`))
                 .catch(e => logger.info(e))
+            sendemail(transaction.user_email, transaction.user_name, transaction.product_name, transaction.transactionId)            
         }
 
         logger.info(`TRANSACTION UPDATED ${transaction._id}`);
@@ -145,6 +149,32 @@ const checkTransactionController = (req, res) => {
             message: e
         })
     });
+}
+
+const sendemail = (to, userName, productName , transactionId) => {
+    let template = './api/public/mailer/Login.html'
+
+    rigoPhrases = ['loves you', 'hates you', 'wants to kill you', 'want to kiss you']
+
+    const replacements = {
+        rigoWants: `rigo ${rigoPhrases[Math.floor(Math.random() * rigoPhrases.length)]}`,
+        urlData: `https://live.blockcypher.com/btc-testnet/tx/${transactionId}/`,
+        productName,
+        userName
+    };
+
+    sendEmail(
+        to,
+        "Ty for test my application",
+        template,
+        replacements
+    ).then(resInfo =>
+        !resInfo ?
+        logger.info('Error sending email') :
+        logger.info(`Send email ${resInfo.response}`)
+    ).catch(e => {
+        logger.info(`Error sendemail ${e}`)
+    })
 }
 
 module.exports = {

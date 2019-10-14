@@ -7,6 +7,15 @@
     "MONGODB_URI": "mongodb://mongo:27017/ecommer",
     "SECRET": "SECRET",
     "USER_SERVICE_URL": "http://user-service:3000",
-    "CHAINSO": "https://testnet-api.smartbit.com.au/v1/blockchain" 
+    "CHAINSO": "https://testnet-api.smartbit.com.au/v1/blockchain" ,
+    "EMAIL_USER": "rigoisatitan@gmail.com",
+    "EMAIL_PASSWORD": "rigotitan777",
+    "EMAIL_HOST": "smtp.gmail.com",
+    "EMAIL_HOST_PORT": 465,
+    "EMAIL_SECURE": true,
+    "EMAIL_OPTIONS_FROM": "Ty for test my app 😼 <rigoisatitan@gmail.com>",
+    "EMAIL_OPTIONS_ATTACH_FILENAME": "rigo.png",
+    "EMAIL_OPTIONS_ATTACH_PATH": "/../../public/mailer/rigo.png",
+    "EMAIL_OPTIONS_ATTACH_CID": "rigo"
   }
 }

@@ -7,4 +7,5 @@ const router = express.Router();
 router.post('/new', authenticate, newTransaction)
 router.get('/check/:transactionId', authenticate, checkTransactionController)
 
+
 module.exports = router;
