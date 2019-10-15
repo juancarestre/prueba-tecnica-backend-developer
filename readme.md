@@ -93,4 +93,5 @@ This initiate a different database and seed it with test seed data, after that m
 ### 
     dtengo: mwREqD3yh774ATZQHxEKUaqWaoj8Y9LDXw
     el wallet de mi tienda: mxgD3HgYEYQ1JeF9yFoydtEiyVHs7HNPp9
+    s
 
